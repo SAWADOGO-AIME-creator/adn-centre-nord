@@ -1,5 +1,4 @@
-import React from 'react'
-import { Target, Eye, Award, MapPin, Calendar, Users2 } from 'lucide-react'
+import { Award, Calendar, Eye, MapPin, Target, Users2 } from 'lucide-react'
 
 const About = () => {
   const features = [
@@ -19,7 +18,6 @@ const About = () => {
       description: 'Intégrité, solidarité, égalité des genres, développement durable, participation communautaire et transparence dans nos actions.'
     }
   ]
-
   const organizationInfo = [
     {
       icon: MapPin,
@@ -29,7 +27,7 @@ const About = () => {
     {
       icon: Calendar,
       title: 'Création',
-      description: 'Créée le 10 décembre 2023'
+      description: 'Créée le 10 décembre 2018'
     },
     {
       icon: Users2,
@@ -92,6 +90,7 @@ const About = () => {
               conformément à la <strong>loi 064-2015/CNT du 20 octobre 2015</strong> portant liberté d'association 
               au Burkina Faso.
             </p>
+            <p>Récépissé de declaration d'existance :RCNR007</p><br />
             <p className="text-gray-700 mb-4">
               Notre association est constituée pour une durée de <strong>99 ans</strong> et fonctionne 
               selon les principes de transparence, de participation démocratique et de gestion rigoureuse 

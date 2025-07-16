@@ -1,16 +1,14 @@
-import { 
-  MapPin, 
-  Phone, 
-  Mail, 
-
-  Users, 
-  Heart, 
-  Leaf, 
-  Target,
+import {
   ArrowUp,
-
+  Facebook,
   Globe,
-  Facebook
+  Heart,
+  Leaf,
+  Mail,
+  MapPin,
+  Phone,
+  Target,
+  Users
 } from 'lucide-react'
 
 const Footer = () => {
@@ -51,7 +49,7 @@ const Footer = () => {
     },
     {
       icon: Mail,
-      text: 'contact@adncn.org'
+      text: 'associationnamalgbzanga@gmail.com'
     }
   ]
 

@@ -1,18 +1,18 @@
-import React, { useState } from 'react'
-import { 
-  MapPin, 
-  Phone, 
-  Mail, 
-  Facebook, 
-  Send, 
-  User, 
-  MessageCircle,
+import {
+  Check,
   Clock,
-  Heart,
+  Facebook,
   HandHeart,
-  Users,
-  Check
+  Heart,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+  Send,
+  User,
+  Users
 } from 'lucide-react'
+import React, { useState } from 'react'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -25,20 +25,69 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
-    // Reset form
+    
+    // Validation simple
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+      alert('Veuillez remplir tous les champs obligatoires (*)');
+      return;
+    }
+
+    // Créer le message formaté pour WhatsApp
+    const whatsappMessage = `Bonjour, je suis ${formData.name}
+
+📧 Email: ${formData.email}
+${formData.phone ? `📱 Téléphone: ${formData.phone}` : ''}
+📋 Sujet: ${formData.subject}
+
+💬 Message:
+${formData.message}
+
+Merci de me contacter.`;
+
+    // Envoyer vers WhatsApp
+    const whatsappNumber = "22670499814"; // Format international
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(whatsappURL, '_blank');
+    setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+
+    // Essayer d'envoyer par email
+    const emailSubject = `Contact ADN/CN - ${formData.subject}`;
+    const emailBody = `Bonjour,
+
+Je suis ${formData.name} et je vous contacte concernant: ${formData.subject}
+
+Mes coordonnées:
+- Email: ${formData.email}
+${formData.phone ? `- Téléphone: ${formData.phone}` : ''}
+
+Message:
+${formData.message}
+
+Cordialement,
+${formData.name}`;
+
+    const emailURL = `mailto:associationnamalgbzanga@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    
+    // Essayer d'ouvrir l'email
+    try {
+      window.location.href = emailURL;
+    } catch (error) {
+      console.log('Email non disponible, utilisation de WhatsApp uniquement');
+    }
+
+    // Réinitialiser le formulaire
     setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
-    alert('Votre message a été envoyé avec succès!')
+    alert('Message envoyé ! Vous allez être redirigé vers WhatsApp et votre client email.')
   }
 
-
-const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
-        ...formData,
-        [e.target.name]: e.target.value
+      ...formData,
+      [e.target.name]: e.target.value
     })
-}
+  }
 
   const contactInfo = [
     {
