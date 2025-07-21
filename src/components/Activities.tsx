@@ -1,16 +1,16 @@
-import React from 'react'
-import { 
-  Heart, 
-  Users, 
-  Droplets, 
-  Shield, 
-  Apple, 
-  Utensils, 
-  Leaf, 
-  HandHeart,
+import {
   Activity,
+  Apple,
+  Baby,
   BookOpen,
-  Baby
+  Droplets,
+  HandHeart,
+  Heart,
+  Leaf,
+  Shield,
+  Stethoscope,
+  Users,
+  Utensils
 } from 'lucide-react'
 
 const Activities = () => {
@@ -86,7 +86,13 @@ const Activities = () => {
       title: 'Protection de l\'Enfance',
       description: 'Promotion des droits de l\'enfant, protection contre les violences et soutien au développement de l\'enfant.',
       color: 'bg-rose-100 text-rose-600'
-    }
+    },
+    {
+  icon: Stethoscope,
+  title: 'Formation des Médecins',
+  description: 'Programmes de formation médicale continue, mise à jour des connaissances et développement des compétences cliniques.',
+  color: 'bg-rose-100 text-rose-600'
+}
   ]
 
   return (
@@ -98,8 +104,8 @@ const Activities = () => {
             Nos <span className="text-gradient">Domaines d'Action</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            ADN/CN intervient dans plusieurs domaines clés pour un développement durable 
-            et intégral au profit des communautés du Centre-Nord.
+            ADN/CN a déjà réalisé des activités dans plusieurs domaines clés 
+            pour un développement durable et intégral au profit des communautés du Centre-Nord.
           </p>
         </div>
 
